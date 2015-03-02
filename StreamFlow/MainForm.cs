@@ -14,6 +14,7 @@ namespace StreamFlow
     public partial class MainForm : Form
     {
         public static List<string> ParticipantList = new List<string>();
+        public static List<Tournament> TournamentList = new List<Tournament>();
 
         public MainForm()
         {
@@ -100,6 +101,46 @@ namespace StreamFlow
         {
             AboutDialog dialog = new AboutDialog();
             dialog.ShowDialog(this);
+        }
+
+        private void GetTournamentButton_Click(object sender, EventArgs e)
+        {
+            TournamentList = ChallongeSettings.ChallongeAPIObject.GetTournaments().ToList();
+
+            foreach (var tourny in TournamentList)
+            {
+                TournamentListBox.Items.Add(tourny.Name);
+            }
+        }
+
+        private void GetParticpantsButton_Click(object sender, EventArgs e)
+        {
+            if(TournamentListBox.SelectedIndex != -1)
+            {
+                Tournament SelectedTourny = null;
+                foreach(Tournament tourny in TournamentList)
+                {
+                    if(tourny.Name == TournamentListBox.SelectedItem)
+                    {
+                        SelectedTourny = tourny;
+                        break;
+                    }
+                }
+                if(SelectedTourny != null)
+                {
+                    List<Participant> participants = ChallongeSettings.ChallongeAPIObject.GetParticipants(SelectedTourny.Id).ToList();
+
+                    ChallongeParticipantsListBox.Items.Clear();
+                    foreach(var participant in participants)
+                    {
+                        ChallongeParticipantsListBox.Items.Add(participant.NameOrUsername);
+                        if(participant.NameOrUsername == "")
+                        {
+                            int i = 0;
+                        }
+                    }
+                }
+            }
         }
     }
 }

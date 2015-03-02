@@ -13,6 +13,7 @@ namespace StreamFlow
 
         private static string apiKey = "";
         private static string subdomain = "";
+        private static ChallongeAPI challongeAPIObject;
 
         #endregion
 
@@ -30,17 +31,29 @@ namespace StreamFlow
             set 
             { 
                 apiKey = value;
-                File.WriteAllLines(SettingsFile, GetSettingsList());
+                SetSettingsList();
             }
         }
 
         public static string Subdomain
         {
             get { return subdomain; }
-            set 
-            { 
+            set
+            {
                 subdomain = value;
-                File.WriteAllLines(SettingsFile, GetSettingsList());
+                SetSettingsList();
+            }
+        }
+
+        public static ChallongeAPI ChallongeAPIObject
+        {
+            get 
+            {
+                if(challongeAPIObject == null)
+                {
+                    challongeAPIObject = new ChallongeAPI(apiKey, subdomain);
+                }
+                return challongeAPIObject; 
             }
         }
 
@@ -65,7 +78,7 @@ namespace StreamFlow
             }
             else
             {
-                File.WriteAllLines(SettingsFile, GetSettingsList());
+                SetSettingsList();
             }
         }
 
@@ -80,6 +93,12 @@ namespace StreamFlow
             settings.Add(subdomain);
 
             return settings;
+        }
+
+        public static void SetSettingsList()
+        {
+            File.WriteAllLines(SettingsFile, GetSettingsList());
+            challongeAPIObject = new ChallongeAPI(apiKey, subdomain);
         }
 
         #endregion

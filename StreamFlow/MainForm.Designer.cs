@@ -48,12 +48,18 @@
             this.ParticipantRemoveButton = new System.Windows.Forms.Button();
             this.ParticipantAddButton = new System.Windows.Forms.Button();
             this.ParticipantListBox = new System.Windows.Forms.ListBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.GetTournamentButton = new System.Windows.Forms.Button();
+            this.TournamentListBox = new System.Windows.Forms.ListBox();
+            this.GetParticpantsButton = new System.Windows.Forms.Button();
+            this.ChallongeParticipantsListBox = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Match.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Player2ScoreBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player1ScoreBox)).BeginInit();
             this.Participants.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -87,6 +93,7 @@
             // 
             this.tabControl1.Controls.Add(this.Match);
             this.tabControl1.Controls.Add(this.Participants);
+            this.tabControl1.Controls.Add(this.tabPage1);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -206,6 +213,42 @@
             resources.ApplyResources(this.ParticipantListBox, "ParticipantListBox");
             this.ParticipantListBox.Name = "ParticipantListBox";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.ChallongeParticipantsListBox);
+            this.tabPage1.Controls.Add(this.GetParticpantsButton);
+            this.tabPage1.Controls.Add(this.TournamentListBox);
+            this.tabPage1.Controls.Add(this.GetTournamentButton);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // GetTournamentButton
+            // 
+            resources.ApplyResources(this.GetTournamentButton, "GetTournamentButton");
+            this.GetTournamentButton.Name = "GetTournamentButton";
+            this.GetTournamentButton.UseVisualStyleBackColor = true;
+            this.GetTournamentButton.Click += new System.EventHandler(this.GetTournamentButton_Click);
+            // 
+            // TournamentListBox
+            // 
+            this.TournamentListBox.FormattingEnabled = true;
+            resources.ApplyResources(this.TournamentListBox, "TournamentListBox");
+            this.TournamentListBox.Name = "TournamentListBox";
+            // 
+            // GetParticpantsButton
+            // 
+            resources.ApplyResources(this.GetParticpantsButton, "GetParticpantsButton");
+            this.GetParticpantsButton.Name = "GetParticpantsButton";
+            this.GetParticpantsButton.UseVisualStyleBackColor = true;
+            this.GetParticpantsButton.Click += new System.EventHandler(this.GetParticpantsButton_Click);
+            // 
+            // ChallongeParticipantsListBox
+            // 
+            this.ChallongeParticipantsListBox.FormattingEnabled = true;
+            resources.ApplyResources(this.ChallongeParticipantsListBox, "ChallongeParticipantsListBox");
+            this.ChallongeParticipantsListBox.Name = "ChallongeParticipantsListBox";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -224,6 +267,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player1ScoreBox)).EndInit();
             this.Participants.ResumeLayout(false);
             this.Participants.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,6 +294,11 @@
         private System.Windows.Forms.Button ParticipantAddButton;
         private System.Windows.Forms.ListBox ParticipantListBox;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.ListBox TournamentListBox;
+        private System.Windows.Forms.Button GetTournamentButton;
+        private System.Windows.Forms.Button GetParticpantsButton;
+        private System.Windows.Forms.ListBox ChallongeParticipantsListBox;
     }
 }
 
