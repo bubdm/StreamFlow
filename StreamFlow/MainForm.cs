@@ -46,10 +46,22 @@ namespace StreamFlow
                 }
             }
 
-            Player1ComboBox.SelectedItem = File.ReadAllText(DirectoryPath + Player1NameFile);
-            Player2ComboBox.SelectedItem = File.ReadAllText(DirectoryPath + Player2NameFile);
-            Player1ScoreBox.Value = Int32.Parse(File.ReadAllText(DirectoryPath + Player1ScoreFile));
-            Player2ScoreBox.Value = Int32.Parse(File.ReadAllText(DirectoryPath + Player2ScoreFile));
+            if (File.Exists(DirectoryPath + Player1NameFile))
+            {
+                Player1ComboBox.SelectedItem = File.ReadAllText(DirectoryPath + Player1NameFile);
+            }
+            if (File.Exists(DirectoryPath + Player2NameFile))
+            {
+                Player2ComboBox.SelectedItem = File.ReadAllText(DirectoryPath + Player2NameFile);
+            }
+            if (File.Exists(DirectoryPath + Player1ScoreFile))
+            {
+                Player1ScoreBox.Value = Int32.Parse(File.ReadAllText(DirectoryPath + Player1ScoreFile));
+            }
+            if (File.Exists(DirectoryPath + Player2ScoreFile))
+            {
+                Player2ScoreBox.Value = Int32.Parse(File.ReadAllText(DirectoryPath + Player2ScoreFile));
+            }
         }
 
         private void Player1ComboBox_SelectedIndexChanged(object sender, EventArgs e)
