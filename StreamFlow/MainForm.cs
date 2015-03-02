@@ -8,32 +8,19 @@ using System.Windows.Forms;
 
 namespace StreamFlow
 {
+    /// <summary>
+    /// Main form of the application.
+    /// </summary>
     public partial class MainForm : Form
     {
-        public static string DirectoryPath = "C:\\";
-
-        private const string Player1NameFile = "\\Player 1.txt";
-        private const string Player2NameFile = "\\Player 2.txt";
-        private const string Player1ScoreFile = "\\Player 1 Score.txt";
-        private const string Player2ScoreFile = "\\Player 2 Score.txt";
-
         public static List<string> ParticipantList = new List<string>();
 
         public MainForm()
         {
             InitializeComponent();
-
-            if(File.Exists("Settings.txt"))
-            {
-                DirectoryPath = File.ReadAllText("Settings.txt");
-            }
-            else
-            {
-                File.WriteAllText("Settings.txt", DirectoryPath);
-            }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs args)
         {
             if(File.Exists("Participants.txt"))
             {
@@ -45,40 +32,35 @@ namespace StreamFlow
                     Player2ComboBox.Items.Add(item);
                 }
             }
-
-            Player1ComboBox.SelectedItem = File.ReadAllText(DirectoryPath + Player1NameFile);
-            Player2ComboBox.SelectedItem = File.ReadAllText(DirectoryPath + Player2NameFile);
-            Player1ScoreBox.Value = Int32.Parse(File.ReadAllText(DirectoryPath + Player1ScoreFile));
-            Player2ScoreBox.Value = Int32.Parse(File.ReadAllText(DirectoryPath + Player2ScoreFile));
         }
 
-        private void Player1ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void Player1ComboBox_SelectedIndexChanged(object sender, EventArgs args)
         {
-            File.WriteAllText(DirectoryPath + Player1NameFile, Player1ComboBox.SelectedItem.ToString());
+            OBSSettings.SetPlayer1Name(Player1ComboBox.SelectedItem.ToString());
         }
 
-        private void Player2ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void Player2ComboBox_SelectedIndexChanged(object sender, EventArgs args)
         {
-            File.WriteAllText(DirectoryPath + Player2NameFile, Player2ComboBox.SelectedItem.ToString());
+            OBSSettings.SetPlayer2Name(Player2ComboBox.SelectedItem.ToString());
         }
 
-        private void Player1ScoreBox_ValueChanged(object sender, EventArgs e)
+        private void Player1ScoreBox_ValueChanged(object sender, EventArgs args)
         {
-            File.WriteAllText(DirectoryPath + Player1ScoreFile, Player1ScoreBox.Value.ToString());
+            OBSSettings.SetPlayer1Score(Player1ScoreBox.Value);
         }
 
-        private void Player2ScoreBox_ValueChanged(object sender, EventArgs e)
+        private void Player2ScoreBox_ValueChanged(object sender, EventArgs args)
         {
-            File.WriteAllText(DirectoryPath + Player2ScoreFile, Player2ScoreBox.Value.ToString());
+            OBSSettings.SetPlayer2Score(Player2ScoreBox.Value);
         }
 
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs args)
         {
-            OptionsForm optionsForm = new OptionsForm();
+            SettingsForm optionsForm = new SettingsForm();
             optionsForm.ShowDialog(this);
         }
 
-        private void ParticipantAddButton_Click(object sender, EventArgs e)
+        private void ParticipantAddButton_Click(object sender, EventArgs args)
         {
             if(ParticipantAddBox.Text.Length > 0)
             {
@@ -95,7 +77,7 @@ namespace StreamFlow
             File.WriteAllText("Participants.txt", filePrint);
         }
 
-        private void ParticipantRemoveButton_Click(object sender, EventArgs e)
+        private void ParticipantRemoveButton_Click(object sender, EventArgs args)
         {
             if(ParticipantListBox.SelectedIndex != -1)
             {
@@ -108,7 +90,7 @@ namespace StreamFlow
             File.WriteAllText("Participants.txt", filePrint);
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs args)
         {
             AboutDialog dialog = new AboutDialog();
             dialog.ShowDialog(this);

@@ -6,13 +6,13 @@ using System.Windows.Forms;
 
 namespace StreamFlow
 {
-    public partial class OptionsForm : Form
+    public partial class SettingsForm : Form
     {
-        public OptionsForm()
+        public SettingsForm()
         {
             InitializeComponent();
 
-            FileTextBox.Text = MainForm.DirectoryPath;
+            FileTextBox.Text = OBSSettings.DirectoryPath;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -20,7 +20,7 @@ namespace StreamFlow
             DialogResult result = folderBrowserDialog1.ShowDialog();
             if(result == DialogResult.OK)
             {
-                MainForm.DirectoryPath = folderBrowserDialog1.SelectedPath;
+                OBSSettings.SetDirectoyPath(folderBrowserDialog1.SelectedPath);
                 FileTextBox.Text = folderBrowserDialog1.SelectedPath;
                 File.WriteAllText("Settings.txt", folderBrowserDialog1.SelectedPath);
             }
