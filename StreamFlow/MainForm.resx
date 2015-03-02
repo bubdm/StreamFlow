@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>150, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
@@ -367,7 +367,7 @@
     <value>4, 22</value>
   </data>
   <data name="Match.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="Match.Size" type="System.Drawing.Size, System.Drawing">
     <value>1064, 512</value>
@@ -391,16 +391,19 @@
     <value>0</value>
   </data>
   <data name="LoadParticipants.Location" type="System.Drawing.Point, System.Drawing">
-    <value>277, 12</value>
+    <value>258, 12</value>
+  </data>
+  <data name="LoadParticipants.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="LoadParticipants.Size" type="System.Drawing.Size, System.Drawing">
     <value>98, 23</value>
   </data>
   <data name="LoadParticipants.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>0</value>
   </data>
   <data name="LoadParticipants.Text" xml:space="preserve">
-    <value>Load from File</value>
+    <value>Load From File</value>
   </data>
   <data name="&gt;&gt;LoadParticipants.Name" xml:space="preserve">
     <value>LoadParticipants</value>
@@ -528,6 +531,138 @@
   <data name="&gt;&gt;Participants.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="ChallongeParticipantsListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>366, 46</value>
+  </data>
+  <data name="ChallongeParticipantsListBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="ChallongeParticipantsListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 212</value>
+  </data>
+  <data name="ChallongeParticipantsListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;ChallongeParticipantsListBox.Name" xml:space="preserve">
+    <value>ChallongeParticipantsListBox</value>
+  </data>
+  <data name="&gt;&gt;ChallongeParticipantsListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ChallongeParticipantsListBox.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;ChallongeParticipantsListBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="GetParticpantsButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GetParticpantsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>229, 136</value>
+  </data>
+  <data name="GetParticpantsButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="GetParticpantsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 19</value>
+  </data>
+  <data name="GetParticpantsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="GetParticpantsButton.Text" xml:space="preserve">
+    <value>&gt;&gt; Get Particpants &gt;&gt;</value>
+  </data>
+  <data name="&gt;&gt;GetParticpantsButton.Name" xml:space="preserve">
+    <value>GetParticpantsButton</value>
+  </data>
+  <data name="&gt;&gt;GetParticpantsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GetParticpantsButton.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;GetParticpantsButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TournamentListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 46</value>
+  </data>
+  <data name="TournamentListBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="TournamentListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 212</value>
+  </data>
+  <data name="TournamentListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;TournamentListBox.Name" xml:space="preserve">
+    <value>TournamentListBox</value>
+  </data>
+  <data name="&gt;&gt;TournamentListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TournamentListBox.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;TournamentListBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="GetTournamentButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 21</value>
+  </data>
+  <data name="GetTournamentButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="GetTournamentButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 19</value>
+  </data>
+  <data name="GetTournamentButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="GetTournamentButton.Text" xml:space="preserve">
+    <value>Get Tournament List</value>
+  </data>
+  <data name="&gt;&gt;GetTournamentButton.Name" xml:space="preserve">
+    <value>GetTournamentButton</value>
+  </data>
+  <data name="&gt;&gt;GetTournamentButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GetTournamentButton.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;GetTournamentButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPage1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1064, 512</value>
+  </data>
+  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>Challonge</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 27</value>
   </data>
@@ -550,7 +685,7 @@
     <value>0</value>
   </data>
   <metadata name="ParticipantsFile.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>132, 17</value>
+    <value>17, 17</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

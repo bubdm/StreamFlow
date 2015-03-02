@@ -1,8 +1,8 @@
 ﻿// Little Byte Games
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -13,6 +13,8 @@ namespace StreamFlow
     /// </summary>
     public partial class MainForm : Form
     {
+        public static List<Tournament> TournamentList = new List<Tournament>();
+
         public MainForm()
         {
             InitializeComponent();
@@ -85,6 +87,46 @@ namespace StreamFlow
         {
             ParticipantsFile.FileOk -= OnParticipantsFileSelected;
             StreamFlow.Participants.LoadFromFile(((OpenFileDialog)sender).FileName);
+        }
+
+        private void GetTournamentButton_Click(object sender, EventArgs e)
+        {
+            TournamentList = ChallongeSettings.ChallongeAPIObject.GetTournaments().ToList();
+
+            foreach(Tournament tourny in TournamentList)
+            {
+                TournamentListBox.Items.Add(tourny.Name);
+            }
+        }
+
+        private void GetParticpantsButton_Click(object sender, EventArgs e)
+        {
+            if(TournamentListBox.SelectedIndex != -1)
+            {
+                Tournament SelectedTourny = null;
+                foreach(Tournament tourny in TournamentList)
+                {
+                    if(tourny.Name == TournamentListBox.SelectedItem)
+                    {
+                        SelectedTourny = tourny;
+                        break;
+                    }
+                }
+                if(SelectedTourny != null)
+                {
+                    List<Participant> participants = ChallongeSettings.ChallongeAPIObject.GetParticipants(SelectedTourny.Id).ToList();
+
+                    ChallongeParticipantsListBox.Items.Clear();
+                    foreach(Participant participant in participants)
+                    {
+                        ChallongeParticipantsListBox.Items.Add(participant.NameOrUsername);
+                        if(participant.NameOrUsername == "")
+                        {
+                            int i = 0;
+                        }
+                    }
+                }
+            }
         }
     }
 }
