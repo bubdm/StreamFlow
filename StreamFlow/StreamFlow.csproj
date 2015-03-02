@@ -75,6 +75,7 @@
     <Compile Include="ChallongeAPI\Participant.cs" />
     <Compile Include="ChallongeAPI\SetScore.cs" />
     <Compile Include="ChallongeAPI\Tournament.cs" />
+    <Compile Include="ChallongeSettings.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
