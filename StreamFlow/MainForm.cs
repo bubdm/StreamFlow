@@ -73,7 +73,10 @@ namespace StreamFlow
                 }
             }
             String filePrint = ParticipantListBox.Items.Cast<object>().Aggregate("", (current, item) => current + (item + ","));
-            filePrint = filePrint.Remove(filePrint.Length - 1);
+            if(filePrint.Length > 0)
+            {
+                filePrint = filePrint.Remove(filePrint.Length - 1);
+            }
             File.WriteAllText("Participants.txt", filePrint);
         }
 
@@ -86,7 +89,10 @@ namespace StreamFlow
                 Player2ComboBox.Items.Remove(ParticipantListBox.SelectedItem);
             }
             String filePrint = ParticipantListBox.Items.Cast<object>().Aggregate("", (current, item) => current + (item + ","));
-            filePrint = filePrint.Remove(filePrint.Length - 1);
+            if(filePrint.Length > 0)
+            {
+                filePrint = filePrint.Remove(filePrint.Length - 1);
+            }
             File.WriteAllText("Participants.txt", filePrint);
         }
 
