@@ -72,6 +72,8 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OBSSettings.cs" />
+    <Compile Include="Participant.cs" />
+    <Compile Include="Participants.cs" />
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -48,6 +48,8 @@
             this.ParticipantRemoveButton = new System.Windows.Forms.Button();
             this.ParticipantAddButton = new System.Windows.Forms.Button();
             this.ParticipantListBox = new System.Windows.Forms.ListBox();
+            this.ParticipantsFile = new System.Windows.Forms.OpenFileDialog();
+            this.LoadParticipants = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Match.SuspendLayout();
@@ -173,6 +175,7 @@
             // 
             // Participants
             // 
+            this.Participants.Controls.Add(this.LoadParticipants);
             this.Participants.Controls.Add(this.ParticipantAddBox);
             this.Participants.Controls.Add(this.ParticipantRemoveButton);
             this.Participants.Controls.Add(this.ParticipantAddButton);
@@ -205,6 +208,17 @@
             this.ParticipantListBox.FormattingEnabled = true;
             resources.ApplyResources(this.ParticipantListBox, "ParticipantListBox");
             this.ParticipantListBox.Name = "ParticipantListBox";
+            // 
+            // ParticipantsFile
+            // 
+            this.ParticipantsFile.FileName = "ParticipantsFile";
+            // 
+            // LoadParticipants
+            // 
+            resources.ApplyResources(this.LoadParticipants, "LoadParticipants");
+            this.LoadParticipants.Name = "LoadParticipants";
+            this.LoadParticipants.UseVisualStyleBackColor = true;
+            this.LoadParticipants.Click += new System.EventHandler(this.LoadParticipants_Click);
             // 
             // MainForm
             // 
@@ -250,6 +264,8 @@
         private System.Windows.Forms.Button ParticipantAddButton;
         private System.Windows.Forms.ListBox ParticipantListBox;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Button LoadParticipants;
+        private System.Windows.Forms.OpenFileDialog ParticipantsFile;
     }
 }
 

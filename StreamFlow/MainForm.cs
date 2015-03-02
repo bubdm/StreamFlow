@@ -1,7 +1,7 @@
 ﻿// Little Byte Games
 
 using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,8 +13,6 @@ namespace StreamFlow
     /// </summary>
     public partial class MainForm : Form
     {
-        public static List<string> ParticipantList = new List<string>();
-
         public MainForm()
         {
             InitializeComponent();
@@ -22,16 +20,7 @@ namespace StreamFlow
 
         private void Form1_Load(object sender, EventArgs args)
         {
-            if(File.Exists("Participants.txt"))
-            {
-                ParticipantListBox.Items.AddRange(File.ReadAllText("Participants.txt").Split(','));
-
-                foreach(object item in ParticipantListBox.Items)
-                {
-                    Player1ComboBox.Items.Add(item);
-                    Player2ComboBox.Items.Add(item);
-                }
-            }
+            StreamFlow.Participants.Initialize(ParticipantListBox, Player1ComboBox, Player2ComboBox);
         }
 
         private void Player1ComboBox_SelectedIndexChanged(object sender, EventArgs args)
@@ -64,42 +53,38 @@ namespace StreamFlow
         {
             if(ParticipantAddBox.Text.Length > 0)
             {
-                if(!ParticipantListBox.Items.Contains(ParticipantAddBox.Text))
+                if(StreamFlow.Participants.Add(new Participant(ParticipantAddBox.Text)))
                 {
-                    ParticipantListBox.Items.Add(ParticipantAddBox.Text);
-                    Player1ComboBox.Items.Add(ParticipantAddBox.Text);
-                    Player2ComboBox.Items.Add(ParticipantAddBox.Text);
-                    ParticipantAddBox.Text = "";
+                    ParticipantAddBox.Text = string.Empty;
                 }
             }
-            String filePrint = ParticipantListBox.Items.Cast<object>().Aggregate("", (current, item) => current + (item + ","));
-            if(filePrint.Length > 0)
-            {
-                filePrint = filePrint.Remove(filePrint.Length - 1);
-            }
-            File.WriteAllText("Participants.txt", filePrint);
         }
 
         private void ParticipantRemoveButton_Click(object sender, EventArgs args)
         {
             if(ParticipantListBox.SelectedIndex != -1)
             {
-                ParticipantListBox.Items.Remove(ParticipantListBox.SelectedItem);
-                Player1ComboBox.Items.Remove(ParticipantListBox.SelectedItem);
-                Player2ComboBox.Items.Remove(ParticipantListBox.SelectedItem);
+                StreamFlow.Participants.Remove(ParticipantListBox.SelectedItem.ToString());
             }
-            String filePrint = ParticipantListBox.Items.Cast<object>().Aggregate("", (current, item) => current + (item + ","));
-            if(filePrint.Length > 0)
-            {
-                filePrint = filePrint.Remove(filePrint.Length - 1);
-            }
-            File.WriteAllText("Participants.txt", filePrint);
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs args)
         {
             AboutDialog dialog = new AboutDialog();
             dialog.ShowDialog(this);
+        }
+
+        private void LoadParticipants_Click(object sender, EventArgs e)
+        {
+            ParticipantsFile.Filter = @"Text files (*.txt)|*.txt";
+            ParticipantsFile.FileOk += OnParticipantsFileSelected;
+            ParticipantsFile.ShowDialog(this);
+        }
+
+        private void OnParticipantsFileSelected(object sender, CancelEventArgs args)
+        {
+            ParticipantsFile.FileOk -= OnParticipantsFileSelected;
+            StreamFlow.Participants.LoadFromFile(((OpenFileDialog)sender).FileName);
         }
     }
 }
